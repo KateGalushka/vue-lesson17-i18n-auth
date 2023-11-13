@@ -1,9 +1,14 @@
 <template>
-    <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-    </nav>
+	<div class="container">
+		<nav>
+        <router-link to="/">Головна</router-link> 
+        <router-link to="/shop">Магазин</router-link>
+        <router-link to="/payments">Правила оплати</router-link>
+        <router-link to="/contacts">Контакти</router-link>
+    	</nav>
     <router-view />
+	</div>
+    
 </template>
 
 <style lang="scss">
@@ -11,19 +16,29 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 40px 0;
 }
 
 nav {
     padding: 30px;
+	 display: flex;
+	 gap: 30px;
 
     a {
         font-weight: bold;
         color: #2c3e50;
+		  text-decoration: none;
+		  padding: 10px;
 
         &.router-link-exact-active {
-            color: #42b983;
+            border: 2px solid red;
+				border-radius: 10px;
         }
     }
 }
