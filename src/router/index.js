@@ -1,42 +1,71 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ShopView from '../views/ShopView'
-// import ProductsListView from '../views/ProductsListView'
-import ProductsList from '../components/ProductsList'
-import PaymentsView from '../views/PaymentsView'
-import ContactsView from '../views/ContactsView'
+import store from '@/store'
 
 const routes = [
     {
         path: '/',
         name: 'home',
         component: HomeView,
+			meta: {
+				requireAuth: false,
+			},
     },
     {
         path: '/shop',
         name: 'shop',
-        component: ShopView,
+		 component: () => import('../views/NotebooksShopView.vue'),
+		 meta: {
+			 requireAuth: false,
+		 },
     },
     {
-        path: '/products/:categoryId?',
-        name: 'products',
-        component: ProductsList,
+        path: '/shop/:productId?',
+        name: 'productEditor',
+		  props: true,
+		 component: () => import('../views/ProductEditorView.vue'),
+		 meta: {
+			 requireAuth: true,
+		 },
     },
     {
-        path: '/payments',
-		  name: 'payments',
-		  component: PaymentsView,
-    },
+        path: '/cart',
+        name: 'cart',
+		  props: true,
+		 component: () => import('../views/CartView.vue'),
+		 meta: {
+			 requireAuth: true,
+		 }
+		},
     {
-        path: '/contacts',
-		  name: 'contacts',
-		  component: ContactsView,
+        path: '/login',
+        name: 'login',
+		  props: true,
+		 component: () => import('../views/LoginPage.vue'),
+		 meta: {
+			 requireAuth: false,
+		 },
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHashHistory(),
     routes,
+})
+
+router.beforeEach(async (to) => {
+	if (to.meta?.requireAuth) {
+		let isAuthenticated = store.state.auth.user;
+
+		if (!isAuthenticated){
+			isAuthenticated = await store.dispatch('auth/loginWithCredential')
+		}
+
+		if (!isAuthenticated)
+			return {
+				name: 'login'
+			}
+	}
 })
 
 export default router

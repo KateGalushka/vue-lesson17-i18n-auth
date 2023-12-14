@@ -1,29 +1,23 @@
 import { createStore } from 'vuex'
-import { categories } from './data'
+import auth from './modules/auth'
+import notebooks from './modules/notebooks'
+import brands from './modules/brands'
+import sellers from './modules/sellers'
+import cart from './modules/cart'
+import users from './modules/users'
 
 export default createStore({
-    state: {
-		categoriesList: [],
-		currentProductsList: [],
+    state: {},
+    getters: {},
+    mutations: {},
+    actions: {},
+    modules: {
+		auth,
+		notebooks,
+		brands,
+		sellers,
+		cart,
+		users
 		
 	 },
-    getters: {
-		categoriesList: ({categoriesList})=> categoriesList,
-		getCategoryById: (state) => {
-			return (categoryId) => {
-				return state.categoriesList.find(category=>category.id == categoryId)}
-		}
-	},
-    mutations: {
-		 loadCategoriesList(state, list){
-			state.categoriesList = list
-		 }
-	 },
-    actions: {
-		 loadCategoriesList({ commit }){
-			commit('loadCategoriesList', categories)
-		 }
-	
-	 },
-    modules: {},
 })

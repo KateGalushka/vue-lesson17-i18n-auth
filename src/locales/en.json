@@ -1,0 +1,52 @@
+{
+	"homepage":{
+		"title1": "Welcome to our site!",
+		"title2": "To use services please login",
+		"title3": "How are you"
+	},
+	"loginPage":{
+		"title": "Please login"
+	},
+	"menu": {
+		"home": "Home page",
+		"shop": "Laptops Shop",
+		"cart": "Cart"
+	},
+	"actionTitles": {
+		"login": "Login",
+ 		"logout": "Logout",
+		"clearFilters": "Clear filters",
+		"edit": "Edit card",
+		"delete": "Delete product",
+		"add": "Add product",
+		"back": "Back to shopping",
+		"cancel": "Cancel"
+ 		
+	},
+	"list":{
+		"message": "Nothing found"
+
+	},
+	"filters": {
+		"seller": "Seller",
+		"brand": "Brand",
+		"search": "Search"
+	},
+	"editor": {
+		"productTitleEng": "Product title (English)",
+		"productTitleUkr": "Product title (Ukranian)",
+		"productBrand": "Brand",
+		"productPrice": "Price",
+		"productOldPrice": "Old price (without discount)",
+		"productImg": "Link to product image",
+		"productSeller": "Product seller"
+	},
+	"cart":{
+		"title": "Your cart",
+		"message": "Your cart is empty",
+		"total": "Total Sum"
+	},
+	"language":{
+		"current": "Current language"
+	}
+}
