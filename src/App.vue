@@ -6,10 +6,14 @@
 			  <router-link :to="{name:'shop'}">{{ $t('menu.shop' )}}</router-link> |
 			  <router-link :to="{name:'cart'}">{{ $t('menu.cart') }} <font-awesome-icon icon="cart-shopping" /></router-link>
 			 </nav>
-			<current-lang-component/>
-			<user-profile-component/>
+			 <div>
+				 <current-lang-component/>
+				 <user-profile-component/>
+
+			 </div>
 
 		</header>
+		<hr>
 		 
 		 <router-view />
 	</div>
@@ -30,7 +34,7 @@
 			// }
 			const self = this;
 			window.addEventListener('storage', function() {
-				console.log('window.addEventListener');
+				// console.log('window.addEventListener');
 				if (self.$i18n.locale !== this.localStorage.getItem('lastLocale')) {
 					self.$i18n.locale = this.localStorage.getItem('lastLocale');
 					self.$router.go()
@@ -67,7 +71,7 @@ nav {
 	margin: 0 auto;
 }
 .button {
-	padding: .75rem 1rem;
+	padding: .5rem 1rem;
 	font-size: .875rem;
 	align-self: center;
 	border-radius: .25rem;
@@ -82,8 +86,9 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 3rem;
+	padding: 2rem;
 	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 </style>

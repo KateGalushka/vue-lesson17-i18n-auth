@@ -23,7 +23,6 @@ export default ({
 			commit('addItemToCart', productData)
 		},
 		removeItemFromCart({ commit }, itemId){
-			console.log('remove', itemId);
 			commit('removeItemFromCart', itemId)
 		}
 

@@ -24,7 +24,7 @@ export default {
 	},
 	actions: {
 		async saveLoginUserData({ commit, dispatch }, loginResult) {
-			console.log('loginResult', loginResult)
+			// console.log('loginResult', loginResult)
 			//--------- user data -------
 			const user = loginResult?.user // об'єкт користувача
 			commit('setUser', user)
@@ -52,7 +52,6 @@ export default {
 						commit('setError', error)
 						reject(error)
 					});
-					
 			})
 		},
 		async loginWithCredential({ commit, dispatch }) {
@@ -70,7 +69,7 @@ export default {
 							resolve(loginResult)
 						})
 						.catch((error) => {
-							console.log(error)
+							// console.log(error)
 							commit('setError', error)
 							// Handle Errors here.
 							//var errorCode = error.code

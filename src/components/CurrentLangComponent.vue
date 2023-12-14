@@ -54,7 +54,7 @@
 	position: relative;
 	width: 50px;
 	// border: 1px solid #000;
-	padding: 0.5rem .75rem;
+	padding: 0.5rem .5rem;
 	margin: 0.5rem;
 	cursor: pointer;
 	text-align: right;
@@ -74,8 +74,11 @@
 	content: url('../assets/ua.svg');
 	position: absolute;
 	top: 3px;
-	left: 3px;
+	left: 2px;
 	width: 35px;
+}
+.currentLang{
+	font-size: 0.75rem;
 }
 
 </style>

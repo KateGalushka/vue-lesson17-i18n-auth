@@ -29,7 +29,6 @@ import { mapActions } from 'vuex';
 			}
 			catch(error){
 				alert(error.message);
-				console.log(error);
 			}
 		}
 	},

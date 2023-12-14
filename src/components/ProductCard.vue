@@ -43,6 +43,8 @@ export default {
 		},
 		computed: {
 			...mapGetters('users', ['userPermissions']),
+			...mapGetters('auth', ['getUser']),
+
 			isDiscount() {
 				if (this.productData.oldPrice){
 					return (this.productData.oldPrice-this.productData.price)
@@ -65,10 +67,17 @@ export default {
 				})
 			},
 			onAddToCart() {
-				this.addItemToCart(this.productData);
-				this.$router.push({
-					name: 'cart'
-				})
+				if (this.getUser) {
+					this.addItemToCart(this.productData);
+					this.$router.push({
+						name: 'cart'
+					})
+				} else {
+					this.$router.push({
+						name: 'login'
+					})
+				}
+				
 			}
 		},
 	}

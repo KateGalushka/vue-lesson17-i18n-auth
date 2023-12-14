@@ -44,12 +44,12 @@ import { mapGetters, mapActions } from 'vuex'
 <style lang="scss" scoped>
 .user-profile {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content:flex-end;
+	align-items: center; 
 	gap: 1rem;
 	img{
 		border-radius: 50%;
-		width:3rem;
+		width: 2.5rem;
 	}
 }
 
